@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CRUD</title>
+
+    <script src="scripts/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="controller.js"></script>
+    <!-- <link href="style/bootstrap.min.css" type="text/css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+</head>
+<body ng-app="myApp" ng-controller="myController">
+    <div class="container-fluid bg-light" >
+        <div class="row bg-dark text-white"  >
+            <div class="col-lg-4 offset-3"><p class="text-right" >AngularJS CRUD Single Page Application</p> </div>
+                    
+        </div>
+        <div class="row">
+        
+            <table class="table table-hover">
+                <tr>
+                    <td>ID</td>
+                    <td> {{id}} </td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td><input type="text" ng-model="name">  </td>
+                </tr>
+    
+                <tr>
+                    <td>Salary</td>
+                    <td><input type="number" ng-model="salary">  </td>
+                </tr>
+                <tr>
+                   
+                    <td colspan="2"><button class="btn btn-success " ng-click="AddData()">Save</button>
+                    <button class="btn btn-dark  " ng-click="UpdateData()">Update</button></td>
+                    
+                    
+                </tr>
+    
+            </table>
+    
+            <table class="table table-hover">
+                <thead>
+                        <th>id</th>
+                        <th>Name</th>
+                        <th>Salary</th>
+                        <th>Action</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="Emp in EmpList" ng-click="BindSelectedData(Emp)">
+                        <td>{{Emp.id}}</td>
+                        <td>{{Emp.name}}</td>
+                        <td>{{Emp.salary}}</td>
+                        <td><button type="button" class="btn btn-danger" ng-click="DeleteData()">Delete</button></td>
+                        <!-- <td><input type="button" value="Delete" ng-click="DeleteData(Emp)"></td>                    -->
+                    </tr>
+                </tbody>
+            </table>
+        
+            
+
+        </div>
+
+            
+
+    </div>
+    
+</body>
+</html>
